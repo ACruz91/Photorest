@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+<html>
+	<head>
+	<meta charset="UTF-8">
+			{%block opcion%}
+<P align="right"><img src= '{{MEDIA_URL}}{{perfil.imagen}}' WIDTH=100 HEIGHT=100 BORDER=50 ALT="Un bebé">
+			{%endblock%}
+	{%block titulo%}
+		<h2> Mensajes Enviados </h2>
+
+	{%endblock%}
+                {%block Perfil%}  
+        <div id="content_inner">
+            
+            <ul id="work_filter">
+                <li><a href="#">TABLEROS</a></li>
+                <li><a href="/Usuarios/amigos/">AMIGOS</a></li>
+                <li><a href="/Mensajes/ver/" >MENSAJES</a></li>
+                <li><a href="/Usuarios/peticiones/">PETICIONES</a></li>
+                <li><a href="/Post/posts_usuario/">POSTS</a></li>
+            </ul>
+                {% endblock %}  
+	<body>
+
+{% block formulario %}
+	{% if list %}
+		{%for x in list %}
+        <div id="content">
+
+            <div class="about_blok">
+				<h3>Mensaje</h3>
+           		 <p class="teamline"></p>
+                <p class="about">
+                 Has escrito un mensaje privado a <a href="/Usuarios/perfil/{{x.usuario_id_recibo}}">{{x.usuario_nombre_recibo}}</a> con fecha de {{x.fecha_peticion}}, </p> 
+                                <a href="/Mensajes/eliminar/{{x.id}}" class="button_light">Eliminar</a> 
+                                <p class="teamline"></p>            
+            </div>      
+            <div class="testimonials">
+
+                <div class="quote">{{x.mensaje_privado}}</div>
+                            <p class="teamline"></p>
+                <span class="by">El mensaje que enviaste!</span>
+            </div>
+            
+        </div>	 
+		</div>	
+		</div>   								
+		{%endfor%}
+	{% else %}
+		<center><h2>No Tienes ningún mensaje.</h2></center>
+	{% endif %}
+{% endblock %}
+
+
+	</body>	
+</html>

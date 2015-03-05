@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+<html>
+	<head>
+	<meta charset="UTF-8">
+	<title>Nuevo Perfil</title>
+	{%block titulo%}
+		<h2> Peticion para {{perfil.usuario.username}} </h2>
+	{%endblock%}
+	{% block Descripcion %}
+           <center><p class="teamline">Estas a un paso de ser su amigo!</p></center>
+    {% endblock %}
+	<body>
+	{%block formulario%}	  
+		<center><form action="#" method="post" class="formit" enctype='multipart/form-data'>{% csrf_token %}
+				<input type="text" name="mensaje_peticion"  placeholder="Introduzca Mensaje....">
+		        <input type="submit" class="button_submit" value="Enviar">
+		</form></center>
+	{%endblock%}
+
+	</body>	
+</html>

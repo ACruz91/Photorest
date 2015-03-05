@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+<html>
+	<head>
+	<meta charset="UTF-8">
+	<title>Nuevo Perfil</title>
+	{%block titulo%}
+		<h2> Perfil </h2>
+	{%endblock%}
+	{% block Descripcion %}
+    <hr class="cleanit">
+            <div id="content">	
+           <p class="teamline">Completa tu Perfil para poder empezar!</p>
+           </div>
+    {% endblock %}
+	<body>
+	{%block formulario%}
+    <hr class="cleanit">
+            <div id="content">		  
+		<form action="#" method="post" class="formit" enctype='multipart/form-data'>{% csrf_token %}
+				<input type="file" name="imagen" id="inputPhoto" placeholder="Imagen....">
+				<input type="date" name="fecha_nacimiento" id="inputDate" placeholder="Fecha de Nacimiento....">
+				<select name="sexo" placeholder = "Elige...">
+				<option value="Hombre">Hombre</option>
+				<option value="Mujer">Mujer</option>
+				</select>
+				<input type="text" name="pais" id="inputCountry" placeholder="País....">
+				<input type="text" name="localidad" id="inputLocality" placeholder="Localidad....">
+				<input type="number" name="edad" id="inputEdad" placeholder="Edad....">
+				<input type="text" name="profesion" id="inputProfesion" placeholder="Profesion,...">
+		        <center><input type="submit" class="button_submit" value="Guardar"></center>
+		</form>
+		</div>
+	{%endblock%}
+
+	</body>	
+</html>

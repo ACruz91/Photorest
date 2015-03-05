@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+<html>
+	<head>
+	<meta charset="UTF-8">
+	<title>Busqueda Resultado</title>
+	{%block titulo%}
+		<h2> Busqueda Resultado </h2>
+	{%endblock%}
+	{% block Descripcion %}
+		 {% if usuario_filtrado %}
+		 	{% for x in usuario_filtrado %}
+	 		<div id="content_inner">                  
+		           <div class="fourths_portfolio">
+		                <h4>Haz Click para más detalles<br>
+		                </h4>
+		               <a href="/Usuarios/perfil/{{x.usuario.id}}">	<img style="width:90%,"src='{{MEDIA_URL}}{{x.imagen}}'  WIDTH=220 HEIGHT=220 BORDER=50> </a>
+		               <a href="/Usuarios/perfil/{{x.usuario.id}}" class="profession">{{x.usuario.username}}</a>
+		           </div>
+	     	</div>
+			{% endfor %}
+
+		{% else %}
+			<center><h1> No se Encuentra </h1></center>
+		{% endif %}
+	{% endblock %}
+</html>
+
+
+

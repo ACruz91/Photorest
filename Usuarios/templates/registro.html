@@ -1,0 +1,20 @@
+<html>
+	<head><head>
+	<meta charset="UTF-8">
+	<title>Registro</title>
+	    <link href='http://fonts.googleapis.com/css?family=Yesteryear' rel='stylesheet' type='text/css'>
+	    <link rel="stylesheet" href="/static/css/login.css" type="text/css"> </head>	    
+	<body>
+		<form action="#" method="post" class="formit" enctype='multipart/form-data'>{% csrf_token %}
+				<h1> Registro </h1>
+				<input type="text" name="username" id="inputName" placeholder="Usuario....">
+				<input type="text" name="first_name" id="inputName" placeholder="Nombre....">
+				<input type="text" name="last_name" id="inputName" placeholder="Apellidos....">											
+				<input type="text" name="email" id="inputEmail" placeholder="Email....">
+				<input type="password" name="password1" id="inputPass1" placeholder="Contraseña....">
+				<input type="password" name="password2" id="inputPass2" placeholder="Repita Contraseña....">
+		        <input type="submit" class="button_submit" value="Entrar">
+		</form>
+
+	</body>	
+</html>

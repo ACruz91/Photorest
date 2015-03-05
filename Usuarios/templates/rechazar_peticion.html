@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+<html>
+	<head>
+	<meta charset="UTF-8">
+	<title> Peticion Rechazada </title>
+	{%block titulo%}
+		<h2> Peticion Rechazada </h2>
+	{%endblock%}
+	{% block Descripcion %}
+           <center><p class="teamline">Has rechazado la peticion de {{peticion.usuario_nombre_peticion}}!</p></center>
+           <center><p class="teamline">Quizas la próxima vez lo aceptes!</p></center>
+           <div class="button_main">
+                <a href="/Usuarios/perfil/" class="button_dark">VOLVER</a>
+        	</div>
+    {% endblock %}
+	<body>
+
+</html>

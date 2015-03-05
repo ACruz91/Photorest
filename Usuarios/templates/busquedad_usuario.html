@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+<html>
+	<head>
+	<meta charset="UTF-8">
+	<title>Busqueda Usuarios</title>
+	{%block titulo%}
+		<h2> Busqueda Usuarios </h2>
+	{%endblock%}
+	{% block Descripcion %}
+           <center><p class="teamline">Busca un Usuario mediante este buscador!</p></center>
+    {% endblock %}
+	<body>
+	{%block formulario%}	  
+		<center><form class="formit">{% csrf_token %}
+				<input type="text" name="usuario_buscado"  placeholder="Introduzca Usuario....">
+		        <input type="submit" class="button_submit" value="Buscar">
+		</form></center>
+	{%endblock%}
+
+	</body>	
+</html>

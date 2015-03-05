@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+			{% block titulo %}
+				<h2> Home </h2>
+			{% endblock %}
+	{% block Descripcion %}
+		{% if list %}
+			{% for x in list %}	           
+	 		<div id="content_inner">                  
+		           <div class="fourths_portfolio">
+		                <h4>Haz Click para más detalles<br>
+		                </h4>
+		               <a href="/Post/lista/{{x.id}}">	<img style="width:90%,"src='{{MEDIA_URL}}{{x.imagen}}'  WIDTH=220 HEIGHT=220 BORDER=50> </a>
+		               <a href="/Post/lista/{{x.id}}" class="profession">{{x.titulo}}</a>
+		           </div>
+	     	</div>
+
+			{% endfor %}
+
+
+		{% else %}
+			<center><h2> No existen Post </h2>  </center>
+		{% endif %}
+	{% endblock %}

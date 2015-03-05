@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+	{% block titulo %}
+		<h2> Nuevo Tablero </h2>
+	{% endblock %}
+	
+    {% block formulario %}
+       <center> <h3> Nuevo Tablero </h3>  </center>
+    <center><form action="#" method="post" class="formit" enctype='multipart/form-data'>{% csrf_token %}
+        <input type="file" name="imagen" id="inputPhoto" placeholder="Imagen....">    
+        <input type="text"  cols="50" rows="5" name="nombre" placeholder="Introduzca Título...">
+        <input type="hidden" name="creador" value="{{user.id}}">                       
+        <input type="submit" class="button_submit" value="Postear">
+    </form></center>
+    {% endblock %}
+

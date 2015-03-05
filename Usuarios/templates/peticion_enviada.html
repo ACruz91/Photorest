@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+	{%block titulo%}
+		<h2> Peticiones </h2>
+		<div class="button_main">
+                <a href="/Usuarios/perfil/" class="button_dark">VOLVER</a>
+        </div>
+	{%endblock%}
+                {%block Perfil%}  
+        <div id="content_inner">
+            
+        <div id="content_inner">         
+                <ul id="work_filter"
+                    <li><a href="/Tableros/lista/">TABLEROS</a></li>
+                    <li><a href="/Usuarios/amigos/">AMIGOS</a></li>
+                    <li><a href="/Mensajes/ver/" >MENSAJES</a></li>
+                    <li><a href="/Usuarios/peticiones/">PETICIONES</a></li>
+                    <li><a href="/Post/posts_usuario/">POSTS</a></li>
+                </ul>
+            </div>
+                {% endblock %}  
+	<body>
+        {% block Descripcion %}
+            <center><h2>Su peticion ha sido enviada </h2></center>
+        {% endblock %}
+
+
+	</body>	
+</html>

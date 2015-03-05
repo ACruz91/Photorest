@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+<html>
+	<head>
+	<meta charset="UTF-8">
+	<title>Peticion Aceptada</title>
+	{%block titulo%}
+		<h2> Peticion Aceptada </h2>
+	{%endblock%}
+	{% block Descripcion %}
+           <center><p class="teamline">Has aceptado la peticion de {{usuario_peticion.usuario.username}}!</p></center>
+           <center><p class="teamline">Puedes entrar en su perfil mediante este enlace <a href="/Usuarios/perfil/{{usuario_peticion.id}}">
+           {{usuario_peticion.usuario.username}}</a></p></center>
+    {% endblock %}
+	<body>
+
+</html>

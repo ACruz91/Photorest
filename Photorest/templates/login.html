@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Login</title>
+	    <link href='http://fonts.googleapis.com/css?family=Yesteryear' rel='stylesheet' type='text/css'>
+	    <link rel="stylesheet" href="/static/css/login.css" type="text/css">
+</head>
+
+
+			<form method="POST">{% csrf_token %}
+			
+				<h1> Photorest </h1>
+
+				<input type="text" name="username" id="inputEmail" placeholder="Introduzca Usuario....">
+				<input type="password" name="password" id="inputPassword" placeholder="Introduzca Contraseña....">
+				<a href="/Usuarios/registro/" target="_self"><button type="button">Registro</button>
+				<button type="subimit">Entrar</button>
+
+
+			</form>
+
+
+</html>

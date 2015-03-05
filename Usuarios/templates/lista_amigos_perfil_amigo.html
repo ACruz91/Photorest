@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+			{% block titulo %}
+				<h2> Lista de Amigos de {{perfil.usuario.username}}</h2>
+				<div class="button_main">
+                	<a href="/Usuarios/perfil/{{perfil.id}}" class="button_dark">VOLVER</a>
+            	</div> 
+			{% endblock %}
+
+			{% block opcion %}
+
+            {% endblock %}
+   	{% block Descripcion %}
+   		{{amigos.id}}
+   		{{amigos.usuario.username}}
+		{% if amigos %}
+			{% for x in amigos %}
+
+	 		<div id="content_inner">                  
+		           <div class="fourths_portfolio">
+		                <h4>Haz Click para más detalles<br>
+		                </h4>
+		               <a href="/Usuarios/perfil/{{x.usuario.id}}">	<img style="width:90%,"src='{{MEDIA_URL}}{{x.imagen}}'  WIDTH=220 HEIGHT=220 BORDER=50> </a>
+		               <a href="/Usuarios/perfil/{{x.usuario.id}}" class="profession">{{x.usuario.username}}</a>
+		           </div>
+	     	</div>
+			{% endfor %}
+
+		{% else %}
+			<center><h1> No tienes amigos </h1></center>
+		{% endif %}
+	{% endblock %}

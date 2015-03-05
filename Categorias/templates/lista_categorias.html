@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+			{% block titulo %}
+				<h2> Lista de Categorias </h2>
+			{% endblock %}
+	{% block Descripcion %}
+		{% if list %}
+	 		<div id="content_inner"> 
+			{% for x in list %}	           
+	 		<div id="content_inner">                  
+		           <div class="fourths_portfolio">
+		           		<h4>{{x.descripcion}}<br>
+		                </h4>
+		               <a href="/Categorias/lista/{{x.id}}"><img src='{{MEDIA_URL}}{{x.imagen}}' WIDTH=220 HEIGHT=220 BORDER=50> </a>
+		               <a href="/Categorias/lista/{{x.id}}" class="profession">{{x.nombre}}</a>
+	           		</div>
+	     	</div>
+</div>
+			{% endfor %}
+		{% else %}
+			    <p class="teamline"></p>
+			    <p class="teamline"></p>
+				<center><h1> No existen Categorías </h1></center>
+	      		<p class="teamline"></p>
+	            <p class="teamline"></p>
+				<div class="button_main">
+	                	<a href="/Usuarios/perfil/" class="button_dark">VOLVER</a>
+	            </div> 
+		{% endif %}
+
+	{% endblock %}
+

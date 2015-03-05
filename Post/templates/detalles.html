@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+      {% block titulo %}
+        <h2> {{ post.titulo }} </h2>
+        {% ifequal user.username|stringformat:"s" post.creador|stringformat:"s" %}
+          <div class="button_main">
+                    <a href="/Post/editar/{{post.id}}" class="button_dark">EDITAR</a>
+                </div> 
+              {% endifequal %}
+      {% endblock %}
+
+{% block Descripcion %}
+  {%if post %}
+    <center><img src='{{MEDIA_URL}}{{post.imagen}}'width="50%" height="50%"></center>
+    <div id="content_inner">
+                    <hr class="cleanit">
+      <h3> Detalles</h3>
+      <p class="teamline"></p>
+      <p class="teamline">Descripcion: {{post.descripcion}}</p>
+      <p class="teamline">Fecha: {{post.fecha}}</p>
+           <p class="teamline">Usuario: <a href = '/Usuarios/perfil/{{post.creador.id}}'>{{post.creador}}</a></p>
+           <p class="teamline">Categoria: <a href = '/Categorias/lista/{{categoria.id}}'>{{post.categoria}}</a></p>
+           {% ifequal user.username|stringformat:"s" post.creador|stringformat:"s" %}
+              <a href="/Post/eliminar/{{post.id}}" class="button_dark">ELIMINAR</a> 
+                              <hr class="cleanit">
+           {% endifequal %}
+    </div>
+    {% if commentario %}
+        {% for x in commentario %}
+          <div id="content_inner">
+                          <hr class="cleanit">
+            <h3>Commentario</h3>   
+                <hr class="cleanit">
+                      <div class="moreabout">
+                        <p><b><a href="/Usuarios/perfil/{{x.id_usuario.id}}">{{x.id_usuario}}</a> </b> escribió: <b>{{x.descripcion}}</b> </p>
+                        <p>El valor que te deja el usuario es: <b>{{x.valor}}</b></p>
+                        <p>Fecha: <b>{{x.fecha}}</b></p>
+                      {% ifequal user.id x.id_usuario.id %}    
+                        <a href="/Post/commentario/eliminar/{{x.id}}/{{post.id}}" class="button_dark">ELIMINAR</a>   
+                      {% endifequal %}        
+          </div>
+        </div>
+        
+        {% endfor %}
+        
+
+          </div>
+        </div>
+    {% else %}
+      <center><h3> No Existen Comentarios, Se el primero!</h3></center>
+                      <hr class="cleanit">
+    {% endif %} 
+  {% else %}
+     <center><h3> No Existe Post</h3></center> 
+  {% endif %}
+{% endblock %}
+
+  {% if user.is_authenticated %}
+    {% block formulario %}
+       <center> <h3> Nuevo Comentario </h3>  </center>
+    <center><form action="#" method="post" class="formit" enctype='multipart/form-data'>{% csrf_token %}
+
+        <input type="text"  cols="50" rows="5" name="descripcion" placeholder="Introduzca Comentario...">               
+        <input type="number" name="valor"  placeholder="Valor....">
+        <input type="hidden" name="id_usuario" value ="{{user.id}}">
+        <input type="hidden" name="id_post" value ="{{post.id}}">
+        <input type="submit" class="button_submit" value="Commentar">
+    </form></center>
+    {% endblock %}
+  {% endif %}
+
+
+

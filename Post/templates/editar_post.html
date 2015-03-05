@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+<html>
+	<head>
+	<meta charset="UTF-8">
+	<title>Editar Post</title>
+	{%block titulo%}
+		<h2> {{post.titulo}} </h2>
+	{%endblock%}
+
+	<body>
+	{%block formulario%}
+
+			<form action="#" method="post" class="formit">{% csrf_token %}
+				{{form.as_p}}
+        		<center><input type="submit" class="button_submit" value="Guardar"></center>
+			</form> 
+
+	{%endblock%}
+
+	</body>	
+</html>

@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+<html>
+	<head>
+	<meta charset="UTF-8">
+			{%block opcion%}
+
+			{%endblock%}
+	{%block titulo%}
+		<h2> Peticiones Recibidas </h2>
+
+	{%endblock%}
+                {%block Perfil%}  
+        <div id="content_inner">
+
+            
+            <ul id="work_filter"
+                <li><a href="/Tableros/lista/">TABLEROS</a></li>
+                <li><a href="/Usuarios/amigos/">AMIGOS</a></li>
+                <li><a href="/Mensajes/ver/" >MENSAJES</a></li>
+                <li><a href="/Usuarios/peticiones/">PETICIONES</a></li>
+                <li><a href="/Post/posts_usuario/">POSTS</a></li>
+            </ul>
+                {% endblock %}  
+	<body>
+
+{% block formulario %}
+	{% if peticion %}
+		{%for x in peticion %}
+        <div id="content">
+
+            <div class="about_blok">
+				<h3>Petición de Amistad</h3>
+           		 <p class="teamline"></p>
+                <p class="about"><a href="/Usuarios/perfil/{{x.usuario_id_peticion}}">{{x.usuario_nombre_peticion}}</a>
+                 te ha escrito una petición de amistad con fecha de {{x.fecha_peticion}}, ¿Porqué no le echas un vistazo? Quizas sea interesante</p> 
+                                <a href="/Usuarios/aceptar/{{x.id}}" class="button_light">Aceptar</a>
+                                <a href="/Usuarios/rechazar/{{x.id}}" class="button_light">Rechazar</a> 
+                                <p class="teamline"></p>            
+            </div>      
+            <div class="testimonials">
+
+                <div class="quote">{{x.mensaje_peticion}}</div>
+                            <p class="teamline"></p>
+                <span class="by">El mensaje que te envió!</span>
+            </div>
+            
+        </div>	 
+		</div>	
+		</div>   								
+		{%endfor%}
+	{% else %}
+		<center><h2>No Tienes ninguna petición de amistad.</h2></center>
+	{% endif %}
+{% endblock %}
+
+
+	</body>	
+</html>

@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+<html>
+	<head>
+	<meta charset="UTF-8">
+	<title>Perfil</title>
+			{%block opcion%}
+				<P align="right"><a href="/Usuarios/foto_perfil/{{perfil.id}}"><img src= '{{MEDIA_URL}}{{perfil.imagen}}' width="100" height="100">
+			{%endblock%}
+	{%block titulo%}
+		<h2> Perfil </h2>
+
+	{%endblock%}
+                {%block Perfil%}  
+        <div id="content_inner">
+            
+            <ul id="work_filter"
+                <li><a href="/Tableros/lista/">TABLEROS</a></li>
+                <li><a href="/Usuarios/amigos/">AMIGOS</a></li>
+                <li><a href="/Mensajes/ver/" >MENSAJES</a></li>
+                <li><a href="/Usuarios/peticiones/">PETICIONES</a></li>
+                <li><a href="/Post/posts_usuario/">POSTS</a></li>
+            </ul>
+
+                {% endblock %}  
+	<body>
+	{%block formulario%}	
+
+
+		<p class="text">Nombre: {{usuarios.first_name}}</p>
+		<p class="text">Apellidos: {{usuarios.last_name}}</p>
+		<p class="text">País: {{perfil.pais}}</p>
+		<p class="text">Sexo: {{perfil.sexo}}</p>
+		<p class="text">Edad: {{perfil.edad}}</p>
+		<p class="text">País: {{perfil.pais}}</p>
+		<p class="text">Localidad: {{perfil.localidad}}</p>
+		            <a href="/Usuarios/editar_perfil/" class="button_dark">EDITAR</a>   
+		      </div> 
+	{%endblock%}
+        
+	</body>	
+</html>

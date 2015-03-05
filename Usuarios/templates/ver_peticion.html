@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+<html>
+	<head>
+	<meta charset="UTF-8">
+			{%block opcion%}
+<P align="right"><img src= '{{MEDIA_URL}}{{perfil.imagen}}' WIDTH=100 HEIGHT=100 BORDER=50 ALT="Un bebé">
+			{%endblock%}
+	{%block titulo%}
+		<h2> Peticiones Enviadas </h2>
+
+	{%endblock%}
+    {%block Perfil%}  
+        <div id="content_inner">            
+            <ul id="work_filter">
+                <li><a href="/Tableros/lista/">TABLEROS</a></li>
+                <li><a href="/Usuarios/amigos/">AMIGOS</a></li>
+                <li><a href="/Mensajes/" >MENSAJES</a></li>
+                <li><a href="/Usuarios/peticiones/">PETICIONES</a></li>
+                <li><a href="/Post/posts_usuario/">POSTS</a></li>
+                <li><a href="/Usuarios/editar_perfil/">EDITAR</a></li>
+            </ul>
+        </div>  
+    {% endblock %}
+	<body>
+
+{% block formulario %}
+	{% if peticion %}
+		{%for x in peticion %}
+        <div id="content_inner">
+			  <figure>
+			  			<br>
+	        			<h1>Peticion Para: </h1>
+	        				{{x.usuario_nombre_recibo}}
+	        			<h1>Fecha: </h1 >
+	    	        		{{x.fecha_peticion}}
+		    			<h1>Mensaje: </h1 >
+		    			<p>  {{x.mensaje_peticion}}</p>
+		    			<br>
+			</figure>
+
+
+		</div>	
+		    								
+		{%endfor%}
+	{% else %}
+		<center><h2>No Tienes ninguna petición de amistad.</h2></center>
+	{% endif %}
+{% endblock %}
+
+
+	</body>	
+</html>
+
+

@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+			{% block titulo %}
+				<h2> Lista de Posts </h2>
+				<div class="button_main">
+                	<a href="/Post/nuevo/" class="button_dark">NUEVO</a>
+            	</div> 
+			{% endblock %}
+
+			{% block opcion %}
+
+            {% endblock %}
+        {%block Perfil %}
+        <div id="content_inner">         
+                <ul id="work_filter"
+                    <li><a href="/Tableros/lista/">TABLEROS</a></li>
+                    <li><a href="/Usuarios/amigos/">AMIGOS</a></li>
+                    <li><a href="/Mensajes/ver/" >MENSAJES</a></li>
+                    <li><a href="/Usuarios/peticiones/">PETICIONES</a></li>
+                    <li><a href="/Post/posts_usuario/">POSTS</a></li>
+                </ul>
+            </div>
+        {% endblock %}             
+   	{% block Descripcion %}
+		{% if list %}
+			{% for Post in list %}
+	 		<div id="content_inner">                  
+		           <div class="fourths_portfolio">
+		                <h4>Haz Click para más detalles<br>
+		                </h4>
+		               <a href="/Post/lista/{{Post.id}}">	<img style="width:90%,"src='{{MEDIA_URL}}{{Post.imagen}}'  WIDTH=220 HEIGHT=220 BORDER=50> </a>
+		               <a href="/Post/lista/{{Post.id}}" class="profession">{{Post.titulo}}</a>
+		           </div>
+	     	</div>
+			{% endfor %}
+
+		{% else %}
+		    <p class="teamline"></p>
+		    <p class="teamline"></p>
+			<center><h2> Antes de crear un Post debes de tener un Tablero, para crearlo pulsa  <a href="/Tableros/nuevo" class="profession">aqui</a> </h2></center>		    
+			<center><h1> No existen Posts </h1></center>
+      		<p class="teamline"></p>
+            <p class="teamline"></p>
+			<div class="button_main">
+                	<a href="/Usuarios/perfil/" class="button_dark">VOLVER</a>
+            </div> 
+		{% endif %}
+	{% endblock %}

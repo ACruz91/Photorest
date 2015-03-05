@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+<html>
+	<head>
+	<meta charset="UTF-8">
+	<title>Perfil</title>
+			{%block opcion%}
+<P align="right"><img src= '{{MEDIA_URL}}{{perfil.imagen}}' WIDTH=100 HEIGHT=100 BORDER=50 ALT="Un bebé">
+			{%endblock%}
+	{%block titulo%}
+		<h2> Perfil </h2>
+
+	{%endblock%}
+                {%block Perfil%}  
+        <div id="content_inner">
+            
+            <ul id="work_filter">
+                <li><a href="/Tableros/lista_amigo/{{perfil.id}}">TABLEROS</a></li>
+                <li><a href="/Usuarios/amigos_amigo/{{perfil.id}}">AMIGOS</a></li>
+                <li><a href="/Mensajes/enviar/{{perfil.id}}" >MENSAJE</a></li>
+                <li><a href="/Post/post_usuario_amigo/{{perfil.id}}">POSTS</a></li>
+            </ul>
+                {% endblock %}  
+	<body>
+	{%block formulario%}	
+
+
+
+		<p class="text">Nombre: {{usuarios.first_name}}</p>
+		<p class="text">Apellidos: {{usuarios.last_name}}</p>
+		<p class="text">País: {{perfil.pais}}</p>
+		<p class="text">Sexo: {{perfil.sexo}}</p>
+		<p class="text">Edad: {{perfil.edad}}</p>
+		<p class="text">País: {{perfil.pais}}</p>
+		<p class="text">Localidad: {{perfil.localidad}}</p>
+		<div class="button_main">
+                	<a href="/Usuarios/enviar/{{perfil.id}}" class="button_dark">AMISTAD</a>
+        </div> 
+           </div>      
+	{%endblock%}
+
+	</body>	
+</html>
